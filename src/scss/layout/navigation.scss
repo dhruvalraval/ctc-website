@@ -1,0 +1,161 @@
+.navigation{
+    // @extend %cover;
+    width: 100%;
+    color: $color-black;
+    position: absolute;    
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 1s;
+    overflow: hidden;
+    z-index: z('navigation');
+
+
+    &.scrollUp{
+        transform: translateY(-23rem);
+    }
+
+    @include media('<phone') {
+        width: 100vw;
+        position: absolute;
+    }
+
+}
+
+.navigation_wrapper {
+    position: relative;
+    padding: 4.8rem 4.3rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include media('<phone') {
+        padding: 4.5rem 2.8rem;
+        width: 100vw;
+    }
+}
+
+
+.navigation_link{
+    font-size: 2.5rem;
+    pointer-events: auto;
+    width: 13.9rem;
+    height: 7rem;
+
+    @include media('<phone') {
+        font-size: 3rem;
+    }
+}
+
+.navigation_logo{
+    width: 13.9rem;
+    height: 7rem;
+    position: absolute;
+    top: 5rem;
+    left: 4.5rem;
+    pointer-events: all;
+    transition: 0.2s all ease;
+
+    // opacity: 0;
+
+}
+
+.navigation_logo.home_logo{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navigation_list {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8rem;
+
+    @include media('<phone') {
+        gap: 0.2rem;
+    }
+}
+.navigation_list_item{
+    pointer-events: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: flex-end;
+    gap: 5px;
+    cursor: pointer;
+
+    &:hover{
+        .navigation_list_item_ham_one{
+            width: 1.2rem;
+        }
+        .navigation_list_item_ham_two{
+            width: 2rem;
+        }
+        .navigation_list_item_ham_three{
+            width: 1.2rem;
+        }
+        .navigation_list_link{
+            
+            &:after{
+                width: 100%;
+            }
+        }
+    }
+
+    @include media('<phone') {
+        opacity: 0;
+        margin-right: 4rem;
+    }
+}
+.navigation_list_link{
+    @extend %link-14;
+
+    display: block;
+    line-height: 1;
+    position: relative;
+    // overflow: hidden;
+    transition: 0.4s all ease-in-out;
+    
+    &:after{
+        content: '';
+        top: 100%;
+        left: 0%;
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        transition: 0.4s all ease-in-out;
+        background-color: $color-black;
+    }
+}
+        
+.navigation_list_item_ham{
+    width: 2rem;
+    height: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content:center;
+    gap: 3px;
+}
+
+.navigation_list_item_ham_one{
+    width: 1.4rem;
+    height: 1px;
+    background-color: $color-black;
+    transition: 0.4s all ease-in-out;
+}
+
+.navigation_list_item_ham_two{
+    width: 1.7rem;
+    height: 1px;
+    background-color: $color-black;
+    transition: 0.4s all ease-in-out;
+}
+
+.navigation_list_item_ham_three{
+    width: 1.4rem;
+    height: 1px;
+    background-color: $color-black;
+    transition: 0.4s all ease-in-out;
+}

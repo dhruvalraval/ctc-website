@@ -1,0 +1,97 @@
+%title-12 {
+    font-family: $font-haas;
+    font-size: 1.2rem;
+  
+    @include media('<phone') {
+      font-size: 2.4rem;
+    }
+}
+
+%title-18 {
+  font-family: $font-haas;
+  font-size: 1.8rem;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
+}
+
+%title-24 {
+    font-family: $font-editorial;
+    font-size: 2.4rem;
+  
+    @include media('<phone') {
+      font-size: 2.4rem;
+    }
+}
+
+%title-36{
+    font-family: $font-haas;
+    font-size: 3.6rem;
+  
+    @include media('<phone') {
+      font-size: 2.4rem;
+    }
+}
+
+%title-48 {
+	font-family: $font-haas;
+	font-size: 4.8rem;
+
+	@include media('<phone') {
+		font-size: 2.4rem;
+	}
+}
+
+%title-80 {
+	font-family: $font-haas;
+	font-size: 8rem;
+
+	@include media('<phone') {
+		font-size: 2.4rem;
+	}
+}
+
+%title-100 {
+	font-family: $font-haas;
+	font-size: 10rem;
+
+	@include media('<phone') {
+		font-size: 4.8rem;
+	}
+}
+
+%title-120 {
+    font-family: $font-haas;
+    font-size: 9.6rem;
+  
+    @include media('<phone') {
+      font-size: 4rem;
+    }
+}
+
+%title-144 {
+	font-family: $font-editorial;
+	font-size: 14.4rem;
+	@include media('<phone') {
+		font-size: 4.8rem;
+	}
+}
+
+%title-200 {
+    font-family: $font-haas;
+    font-size: 20rem;
+  
+    @include media('<phone') {
+      font-size: 3.2rem;
+    }
+}
+
+%title-400 {
+    font-family: $font-editorial;
+    font-size: 40rem;
+  
+    @include media('<phone') {
+      font-size: 3.2rem;
+    }
+}

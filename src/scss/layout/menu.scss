@@ -1,0 +1,263 @@
+.menu{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: z('menu');
+    color: $color-cream;
+    display: none;
+    opacity: 0;
+}
+
+.menu_wrapper{
+    background: $color-tundora;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, -100%);
+    padding: 5rem 4.5rem;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 35% 2px 64%;
+    place-items: start;
+}
+
+.menu_left_section{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 30% 50% 5%;
+}
+
+.menu_logo_link{
+    position: relative;
+    align-self: start;
+    justify-self: start;
+
+}
+
+.menu_logo_img{
+    width: 13.9rem;
+    height: 7rem;
+    top: 0;
+    left: 0;
+}
+
+.menu_contact_details{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
+    align-items: center;
+}
+
+.menu_contact_mails{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    align-items: center;
+    align-self: start;
+    justify-self: start;
+    gap: 0.4rem;
+    
+        a{
+            @extend %paragraph-14;
+        }
+}
+
+.menu_contact_number{
+    @extend %paragraph-14;
+}
+
+.menu_contact_info{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    align-items: center;
+    gap: 0.4rem;
+    
+        a{
+            @extend %paragraph-14;
+        }
+}
+
+.menu_contact_social{
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 5% 5% 5% 5% 60%;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.menu_contact_social_links{
+
+}
+
+.menu_contact_social_img{
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.menu_item_number_wrapper{
+    transform: translateX(-1rem);
+    align-self: end;
+    justify-self: start;
+}
+
+.menu_item_number{
+    @extend %title-400;
+
+}
+
+.menu_copyright_footer{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 100%;
+    align-items: end;
+    align-self: end;
+    justify-self: start;
+}
+
+.menu_copyright{
+    @extend %paragraph-14;
+}
+
+.menu_footer_founder{
+    @extend %paragraph-14;
+}
+
+.menu_seperator{
+    align-self: center;
+    width: 100%;
+    height: 95%;
+}
+
+.menu_bar_wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1rem 1fr 1rem;
+    grid-template-columns: 100%;
+    place-items: center;
+}
+
+.menu_bar_circle_static{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: $color-cream;
+}
+
+.menu_bar{
+    grid-row: 2/-1;
+    width: 2px;
+    height: 100%;
+    background-color: $color-cream;
+}
+
+.menu_bar_circle_motion{
+    top: 100%;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: $color-cream;
+}
+
+.menu_right_section{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    place-items: center end;
+}
+
+.menu_close{
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.menu_close_cross{
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+}
+
+.menu_close_cross_one{
+    position: absolute;
+    transform: rotate(-45deg);
+    width: 1px;
+    height: 1.1rem;
+    background-color: $color-cream;
+}
+
+.menu_close_cross_two{
+    position: absolute;
+    transform: rotate(45deg);
+    width: 1px;
+    height: 1.1rem;
+    background-color: $color-cream;
+}
+
+.menu_close_link{
+    @extend %paragraph-14;
+}
+
+.menu_link_wrapper{
+    position: relative;
+    justify-self: start;
+    width: 100%;
+    height: 100%;
+    padding-left: 8.5rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 80%;
+    z-index: 3;
+}
+
+.menu_link_list{
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
+    place-items: start;
+}
+
+.menu_link_item{
+    width: 100%;
+}
+
+.menu_list_link{
+    @extend %title-144;
+
+    letter-spacing: 5px;
+    z-index: 3;
+}
+
+.menu_list_link_img{
+    display: none;
+}
+
+.menu_link_item_img_wrapper{
+    justify-self: end;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+    overflow: hidden;
+    z-index: 2;
+    border-radius: 7rem;
+}
+
+.menu_list__item_link_img{
+    border-radius: 7rem;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,129 @@
+extends base.pug
+
+block variables
+  -var template = 'about'
+
+block content
+    .about#top(data-background="#D9D9D7" data-color="#000000" data-scroll-section)
+        .about_wrapper
+            .about_hero_section
+                .about_hero_title_wrapper
+                    h1.about_hero_title OUR STORY
+                .about_hero_img_wrapper
+                    img.about_hero_img(src='../assets/img/about-hero.jpg' alt='picture of Hezekiah cooking')
+            .about_hero_information
+                .about_hero_information_wrapper
+                    .about_hero_clock
+                        img.about_hero_clock_world_img(src='../assets/img/world.png', alt='world image for clock')
+                        h1.about_hero_clock_city New York
+                        h1.about_hero_ny_clock 12:00
+                    .about_hero_copy
+                        h1.about_hero_copy_title CTC IS A MEMBERS CLUB THAT FOCUSES ON PROVIDING MEMORABLE
+                    .about_hero_info
+                        h1.about_hero_info_para Chef & Tailor Club is Hezekiah Dacosta’s, private chef for Spencer Dinwiddie of the Washington Wizards hospitality brand focusing on offering intimate pop-up restaurant experiences & his culinary product line.
+                .about_hero_marquee_wrapper
+                    .about_marquee_bar_wrapper
+                        .about_marquee_bar_circle_static
+                        .about_marquee_bar
+                        .about_marquee_bar_circle_motion
+                    .about_hero_main_marquee
+                        .about_marquee
+                            .about_marquee_item
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>                            
+                            .about_marquee_item
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                                | CTC IS A MEMBERS ONLY CLUB
+                                <span class="about_marquee_seperator"> / </span>
+                    .about_marquee_bar_wrapper
+                        .about_marquee_bar_circle_static
+                        .about_marquee_bar
+                        .about_marquee_bar_circle_motion
+            .about_introduction
+                .about_introduction_img_wrapper
+                    img.about_introduction_img(src='../assets/img/2.png' alt='picture of Hezekiah Dacosta')
+                .about_introduction_wrapper
+                    p.about_introduction_founder FOUNDED BY
+                    p.about_introduction_para_one Executive Chef Hezekiah Dacosta knew he wanted to do something extraordinary from a young age. Unbeknownst to the Bronx native, his eye for luxury and refined pallet, rivaling that of the finest chefs, his blossoming culinary expertise would lead to the creation of ChefNTailor LLC.
+                    p.about_introduction_para_two Graduating with honors from Johnson and Wales University in Providence, RI, Dacosta masterfully crafted his sophisticated take on everyday cuisine. Quickly moving from fresh graduate to Executive Chef at The Hilton in Boston, MA, the star was quickly ascending and his reach was now in full grasp.
+            .about_2021_wrapper
+                .about_2021_img_wrapper
+                    img.about_2021_img(src='../assets/img/fork-2021.png' alt='picture saying 2021 with fork in between')
+                .about_2021_founded_wrapper
+                    p.about_2021_founded_title FOUNDED BY
+                    p.about_2021_founded_para Chef & Tailor Club is Hezekiah Dacosta’s, private chef for Spencer Dinwiddie of the Washington Wizards hospitality brand focusing on offering intimate pop-up restaurant experiences & his culinary product line.
+            .about_awards_section
+                .about_awards_img_wrapper
+                    img.about_awards_img(src='../assets/img/about-last.jpg' alt='picture of shrimps cooking')
+                .about_awards_section_wrapper
+                    .about_awards_title_wrapper
+                        h1.about_awards_title AWARDS & RECOGNITIONS
+                    .about_awards_wrapper
+                        .about_awards_row
+                            .about_awards_row_wrapper
+                                h1.about_awards_name Black Culinary Expo | 1st Place
+                                p.about_awards_year Year 0000
+                                p.about_awards_company Case/Company Example
+                            .about_awards_bar_wrapper
+                                .about_awards_bar_circle_static
+                                .about_awards_bar
+                                .about_awards_bar_circle_motion
+                        .about_awards_row
+                            .about_awards_row_wrapper
+                                h1.about_awards_name Sankofa Eats Competition | 1st Place
+                                p.about_awards_year Year 0000
+                                p.about_awards_company Case/Company Example
+                            .about_awards_bar_wrapper
+                                .about_awards_bar_circle_static
+                                .about_awards_bar
+                                .about_awards_bar_circle_motion
+                        .about_awards_row
+                            .about_awards_row_wrapper
+                                h1.about_awards_name Culinary Arts Program | Honoree
+                                p.about_awards_year Year 0000
+                                p.about_awards_company Case/Company Example
+                            .about_awards_bar_wrapper
+                                .about_awards_bar_circle_static
+                                .about_awards_bar
+                                .about_awards_bar_circle_motion                                                                
+                .about_footer
+                    .about_footer_wrapper
+                        .about_footer_menu_link_list
+                            a.about_footer_menu_link(href='') ABOUT
+                            a.about_footer_menu_link(href='') SHOP
+                            a.about_footer_menu_link(href='') EVENTS
+                            a.about_footer_menu_link(href='') BLOGS
+                        .about_footer_mail_info
+                            a(href="mailto:press@chefntailorclub") PRESS@CHEFNTAILORCLUB
+                            a(href="mailto:info@chefntailorclub") INFO@CHEFNTAILORCLUB
+                        .about_footer_shipment_info
+                            a(href="") SHIPPING & HANDLING
+                            a(href="") PRIVACY & INFORMATION
+                        .about_footer_mobile_info
+                            a(href="tel:+(646) 648-0582") (646) 648-0582
+                        .about_footer_social_link_list
+                            a.about_footer_social_links(href="")
+                                img.menu_contact_social_img(src='../../assets/img/ig.png')
+                            a.menu_contact_social_links(href="")
+                                img.menu_contact_social_img(src='../../assets/img/fb.png')
+                            a.about_footer_social_links(href="")
+                                img.menu_contact_social_img(src='../../assets/img/tw.png')                     
+                        .about_footer_founded
+                            .about_footer_copyright_wrapper
+                                p.about_footer_copyright CTC Copyright 2021 NY
+                                p.about_footer_founder Founded by Hezekiah Dacosta’s
+                        .about_footer_logo
+                            a.about_footer_logo_link(href="/") 
+                                img.about_footer_logo_img(src='../../assets/img/logo-white.png' alt='chef & tailor club logo')                        
+

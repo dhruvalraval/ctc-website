@@ -1,0 +1,21 @@
+extends base.pug
+
+block variables
+  -var template = 'home'
+
+block content
+    .home#top(data-background="#FFFFFF" data-color="#000000" data-scroll-section)
+        .home_wrapper
+            .home_gallery
+                figure.home_gallery_figure
+                    img.home_gallery_image(src="../assets/img/1.png")
+                figure.home_gallery_figure
+                    img.home_gallery_image(src="../assets/img/2.png")
+                figure.home_gallery_figure
+                    img.home_gallery_image(src="../assets/img/3.png")
+                figure.home_gallery_figure
+                    img.home_gallery_image(src="../assets/img/4.png")
+            .home_title
+                img.home_title_img(src="../assets/img/logo.png")         
+
+            
