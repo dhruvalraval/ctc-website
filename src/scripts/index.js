@@ -7,6 +7,7 @@ import barba from '@barba/core'
 
 // import Canvas from './components/Canvas'
 import Navigation from './components/Navigation'
+import Menu from './animations/Menu'
 
 import Home from './pages/Home/index'
 import About from './pages/About/index'
@@ -22,6 +23,8 @@ class App {
         this.onPreloaded()
         // this.createCanvas()
 
+        this.createMenu()
+
         this.addEventListeners()
         
         this.onResize()
@@ -30,99 +33,19 @@ class App {
         
         this.addLinkListeners()
 
-        this.scroll = new LocomotiveScroll({
-            el: document.querySelector('[data-scroll-container]'),
-            smooth: true,
-            lerp: 0.1,
-            smartphone: {
-                smooth: true
-            },
-            tablet: {
-                smooth: true
-            }
-        })
-
-
-        this.menu = document.querySelector('.menu')
-        this.menuWrapper = document.querySelector('.menu_wrapper')
-        this.menuClose = document.querySelector('.menu_close')
-        this.menuOpen = document.querySelector('.navigation_list_item')
-        this.nav = document.querySelector('.navigation')
-        this.img = document.querySelectorAll('img')
-
-        this.menuOpen.addEventListener('click', (e) => {
-            console.log('open')
-            let timeline = gsap.timeline({
-                ease: 'Power2.easeInOut'
-            })
-
-            timeline.to(this.nav, {
-                autoAlpha: 0,
-                duration: 0.4,
-                onComplete: _ => {
-                    this.menu.style.display = 'block'
-                }
-            })
-
-            // each(this.img, img => {
-            //     gsap.to(img, {
-            //         y:'100%',
-            //         duration: 0.8,
-            //         ease: 'Power2.easeOut'
-            //     })
-            // })
-            timeline.to(this.menu, {
-                autoAlpha: 1,
-                duration: 0.4
-            })
-            timeline.to(this.menuWrapper, {
-                y: '0%',
-                duration: 0.8,
-                ease: 'Power3.easeInOut'
-            })
-        })
-
-        this.menuClose.addEventListener('click', (e) => {
-            console.log('close')
-            let timeline = gsap.timeline({
-                ease: 'Power2.easeInOut'
-            })
-
-            timeline.to(this.menuWrapper, {
-                y: '-100%',
-                duration: 0.8,
-                ease: 'Power3.easeInOut'
-            })
-
-            timeline.to(this.menu, {
-                autoAlpha: 0,
-                duration: 0.4,
-                onComplete: _ => {
-                    this.menu.style.display = 'block'
-                }
-            },'-=0.5')
-
-            timeline.to(this.nav, {
-                autoAlpha: 1,
-                duration: 0.4,
-            },'-=0.5')
-
-
-            // each(this.img, img => {
-            //     gsap.to(img, {
-            //         y: 0,
-            //         duration: 0.8,
-            //         delay: 0.6,
-            //         ease: 'Power2.easeOut'
-            //     })
-            // })
-        })
+        this.scroll = null
         
     }
 
     createContent() {
         this.content = document.querySelector('.content')
         this.template = this.content.getAttribute('data-template')
+    }
+    
+    createMenu() {
+        this.menu = new Menu()
+        this.menuClose = document.querySelector('.menu_close')
+        this.menuOpen = document.querySelector('.navigation_list_item')
     }
 
     createNavigation () {
@@ -145,6 +68,29 @@ class App {
         this.canvas = new Canvas({
             template: this.template
         })
+    }
+
+    startBarba(){
+        
+        barba.init({
+            transitions: [{
+              name: 'default-transition',
+              leave(data) {
+                return gsap.to(data.current.container, {
+                    opacity: 0
+                });
+              },
+              enter(data) {
+                return gsap.from(data.next.container, {
+                    opacity: 0
+                });
+              }
+            }]
+        });
+
+        barba.hooks.after(() => {
+            this.scroll.update();
+        });
     }
 
 
@@ -199,17 +145,6 @@ class App {
         }
         
         const Complete= () => {
-            window.setTimeout(_ => {
-                gsap.to('.preloader', {
-                    autoAlpha: 0,
-                    ease: 'Power2.easeInOut',
-                    duration: 1,
-                    onComplete: () => {
-                        document.querySelector('.preloader').style.display = 'none'
-                    }
-                })
-                // if(LOAD_FLAG === true) this.startBarba()
-            }, 1000)
             this.scroll = new LocomotiveScroll({
                 el: document.querySelector('[data-scroll-container]'),
                 smooth: true,
@@ -221,6 +156,21 @@ class App {
                     smooth: true
                 }
             })
+
+            if(LOAD_FLAG === true) this.startBarba()
+
+            window.setTimeout(_ => {
+                gsap.to('.preloader', {
+                    autoAlpha: 0,
+                    ease: 'Power2.easeInOut',
+                    duration: 1,
+                    onComplete: () => {
+                        document.querySelector('.preloader').style.display = 'none'
+                    }
+                })
+                
+            }, 1000)
+
             this.update()
 
         }
@@ -254,6 +204,10 @@ class App {
         if(this.page && this.page.onResize) {
           this.page.onResize()
         }
+
+        if(this.menu && this.menu.onResize){
+            this.menu.onResize()
+        }
     }
 
     onMouseMove( e ) {
@@ -281,6 +235,26 @@ class App {
         window.addEventListener( 'mousemove', this.onMouseMove.bind(this))
 
         window.addEventListener('resize', this.onResize.bind(this))
+
+        this.menuOpen.addEventListener('click', _ => {
+            this.menu.open()
+        })
+
+        this.menuClose.addEventListener('click', _ => {
+            this.menu.close()
+        })
+
+        this.menuLinks = document.querySelectorAll('.menu_list_link')
+        each(this.menuLinks, ( link )=> {
+            link.addEventListener('click', _ => {
+                this.menu.close()
+            })
+        })
+        
+        this.menuHome = document.querySelector('.menu_logo_img')
+        this.menuHome.addEventListener('click', _ => {
+            this.menu.close()
+        })
     }
 
 

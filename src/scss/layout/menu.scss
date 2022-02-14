@@ -9,17 +9,23 @@
 }
 
 .menu_wrapper{
-    background: $color-tundora;
     width: 100%;
     height: 100%;
-    transform: translate(0, -100%);
     padding: 5rem 4.5rem;
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 35% 2px 64%;
     place-items: start;
 }
-
+.menu_wrapper_bg{
+    background: $color-tundora;
+    width: 100%;
+    height: 100vh;
+    transform: translate(0, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .menu_left_section{
     width: 100%;
     height: 100%;
@@ -48,6 +54,7 @@
     grid-template-columns: 100%;
     grid-template-rows: 25% 25% 25% 25%;
     align-items: center;
+    z-index: 3;
 }
 
 .menu_contact_mails{
@@ -106,6 +113,13 @@
 .menu_item_number{
     @extend %title-400;
 
+    span{
+        display: inline-block;
+
+        &:last-child{
+            margin-left: -8rem;
+        }
+    }
 }
 
 .menu_copyright_footer{
@@ -115,6 +129,7 @@
     align-items: end;
     align-self: end;
     justify-self: start;
+    z-index: 3;
 }
 
 .menu_copyright{
@@ -189,21 +204,23 @@
 .menu_close_cross_one{
     position: absolute;
     transform: rotate(-45deg);
-    width: 1px;
-    height: 1.1rem;
+    width: 1.2px;
+    height: 1.3rem;
     background-color: $color-cream;
 }
 
 .menu_close_cross_two{
     position: absolute;
     transform: rotate(45deg);
-    width: 1px;
-    height: 1.1rem;
+    width: 1.2px;
+    height: 1.3rem;
     background-color: $color-cream;
 }
 
 .menu_close_link{
     @extend %paragraph-14;
+    color: $color-cream;
+    z-index: 0;
 }
 
 .menu_link_wrapper{
@@ -211,7 +228,6 @@
     justify-self: start;
     width: 100%;
     height: 100%;
-    padding-left: 8.5rem;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 20% 80%;
@@ -231,13 +247,33 @@
 
 .menu_link_item{
     width: 100%;
+    padding-left: 8.5rem;
+    overflow-y: hidden;
 }
 
 .menu_list_link{
     @extend %title-144;
-
+    font-weight: 200;
+    
     letter-spacing: 5px;
     z-index: 3;
+    position: relative;
+    overflow: hidden;
+    span{
+        opacity: 0;
+        display: inline-block;
+        margin: -1.8rem;
+    }
+}
+
+[data-animations="menu-link"], 
+[data-animations="menu-words"] {
+    overflow: hidden;
+    
+    span{
+        opacity: 0;
+        display: inline-block;
+    }
 }
 
 .menu_list_link_img{
@@ -260,4 +296,5 @@
     border-radius: 7rem;
     width: 100%;
     height: 100%;
+    transform: translateY(101%);
 }

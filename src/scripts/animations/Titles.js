@@ -36,7 +36,7 @@ export default class Title extends Animation{
               duration: 1.5,
               ease: 'expo.out'
             }, 0)
-          })
+        })
     }
 
     animateOut() {
